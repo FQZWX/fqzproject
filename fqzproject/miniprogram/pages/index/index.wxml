@@ -1,0 +1,33 @@
+<!--index.wxml-->
+<!--><view class="headpic">
+    
+  </view>
+      <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image>
+     <!-- <text class="userinfo-nickname">{{userInfo.nickName}}</text>-->
+  <!-->  </view>
+    
+<view class="container">
+  <view class="userinfo">
+    <button wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 获取头像昵称 </button>
+     <block>
+<view class='headImageView'>
+      <image class='headImage' src='/pages/login/images/logo.png' mode='scaleToFill'></image>
+    </view>
+<button class ="search" bindtap="sumbit">症状搜索</button>
+<button class ="collect"> 个人收藏</button>
+<button class ="hsitory">历史记录</button>
+</block>
+
+  </view>-->
+
+ <view class="main">
+<view class="backview">
+ <image class='background' src="/pages/images/backp.jpg"></image>
+</view>
+<view class ="title">基于《傅青主女科》小程序</view>
+<view class="buttonlist">
+
+<button class ="search" bindtap="jumpS" open-type="onLoad">症状搜索</button>
+<button class ="history">历史记录</button>
+<button class ="collect">个人收藏</button>
+</view></view>
