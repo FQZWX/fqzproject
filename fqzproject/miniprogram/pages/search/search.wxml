@@ -1,0 +1,77 @@
+<!--pages/main/main.wxml-->
+<view class='headView'>
+    <view class='headView'>症状搜索</view>
+</view>
+<view class="search_total">
+            <view class="search_bar">
+                <view class="search_bar_box">
+                    <icon class="search_inbox" type="search" size="18"></icon>
+                    <input type="text" class="search_bar_input" bindinput="searchs" value="{{searchstr}}" placeholder="请输入搜索内容"/>
+                 </view>
+            </view>
+          <!--  <text>{{count}}</text>
+<button bindtap='searchfun' data-msg='click'>点击计数</button>-->
+            <!-- 搜索按钮,调用搜索查询方法 -->
+            <view class="search_button"data-msg='click' bindtap='searchfun' >搜索</view>
+</view>
+<view  class="table">
+
+<block wx:for="{{listData}}" wx:key="{[code]}" wx:if="{{bg_flag==1}}">
+ <view wx:if="{{index % 2 == 0}}" >
+ <button class ="searchre" data-id="{{item.id}}" bindtap="display" open-type="onLoad">{{item.main}}</button>
+ </view> <block wx:if="{{item.flag==1}}">
+   <view wx:if="{{bg_flag==1}}"wx:if="{{index % 2 == 0}}" class="tr bg-w">
+ <view class="tha">相关搜索</view>
+ <view class="tha">西医病名</view>
+ <view class="tha">病因病机</view>
+ 
+ </view>
+ <view class="tr bg-h"  wx:if="{{index % 2 == 0}}" >
+
+ <view class="tda">{{item.csearch}}</view>
+ <view class="tda">{{item.name}}</view>
+ <view class="tda">{{item.reason}}</view>
+
+
+ </view>
+ <view wx:if="{{bg_flag==1}}"wx:if="{{index % 2 == 0}}" class="tr bg-w">
+  <view class="tha">治法</view>
+ <view class="tha">汤方</view>
+ <view class="tha">药方</view>
+ </view>
+ <view class="tr bg-h"  wx:if="{{index % 2 == 0}}" >
+   <view class="tda">{{item.solution}}</view>
+<view class="tda">{{item.soup}}</view>
+ <view class="tda">{{item.medicine}}</view>
+   </view>
+</block>
+<view wx:if="{{index % 2 != 0}}">
+  <button class ="searchre" data-id="{{item.id}}" bindtap="display" open-type="onLoad">{{item.main}}</button>
+</view>
+<block wx:if="{{item.flag==1}}">
+   <view wx:if="{{bg_flag==1}}" wx:if="{{index % 2 != 0}}" class="tr bg-w">
+ <view class="tha">相关搜索</view>
+ <view class="tha">西医病名</view>
+ <view class="tha">病因病机</view>
+
+ </view>
+  <view class="tr bg-h" wx:if="{{index % 2 != 0}}">
+   
+  <view class="tda">{{item.csearch}}</view>
+ <view class="tda">{{item.name}}</view>
+ <view class="tda">{{item.reason}}</view>
+ 
+ </view>
+ <view wx:if="{{bg_flag==1}}" wx:if="{{index % 2 != 0}}" class="tr bg-w">
+   <view class="tha">治法</view>
+ <view class="tha">汤方</view>
+ <view class="tha">药方</view>
+</view>
+<view class="tr bg-h" wx:if="{{index % 2 != 0}}">
+<view class="tda">{{item.solution}}</view>
+ <view class="tda">{{item.soup}}</view>
+ <view class="tda">{{item.medicine}}</view>
+ </view>
+</block>
+ </block>
+</view>
