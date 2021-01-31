@@ -1,6 +1,9 @@
 //index.js
 //获取应用实例
 const app = getApp()
+wx.cloud.init({
+  traceUser:true,
+})
 
 /*onLoad: function (options) {
   wx.showLoading({
@@ -58,13 +61,73 @@ Page({
     title: "基于《傅青主女科》小程序",
     userInfo: {},
     hasUserInfo: true,
-    canIUse: wx.canIUse('button.open-type.getUserInfo')
+    canIUse: wx.canIUse('button.open-type.getUserInfo'),
+    openid: ''
   },
   jumpS:function(){
+    wx.cloud.init()
     wx.navigateTo({
       url: '../search/search',
     })
   },
+  jumpH:function(){
+    wx.cloud.init()
+    wx.navigateTo({
+      url: '../history/history',
+    })
+  },
+  onLoad: function (options) {
+    this.getOpenid();
+
+  },
+  getOpenid() {
+    let that = this;
+    wx.cloud.callFunction({
+     name: 'getOpenid',
+     complete: res => {
+      console.log('云函数获取到的openid: ', res.result.openId)
+      var openid = res.result.openId;
+      that.setData({
+       openid: openid
+      })
+      this.setOpenid();
+     }
+    })
+   },
+   setOpenid()
+   {
+    const db = wx.cloud.database({});
+    const cont = db.collection('User');
+    var ref=0;
+    cont.where(
+      {
+        _openid: this.data.openid
+      }
+    ).get({
+      success: res=>{
+        ref=1;
+      }
+    })
+    if(ref==1)
+    {
+    cont.add({
+      data: {
+        userid: this.data.openid,
+      },
+      success: function (res) {
+        console.log(res._id)
+       /* wx.showModal({
+          title: '成功',
+          content: '您已经登记成功',
+          showCancel: false
+        })*/
+      }
+    });
+  }
+    //把数据给云数据库
+
+   },
+
 
   //事件处理函数
   bindViewTap: function() {
@@ -72,6 +135,8 @@ Page({
       url: '../logs/logs'
     })
   },
+})
+  /*
   onLoad: function () {
     if (app.globalData.userInfo) {
       this.setData({
@@ -109,4 +174,4 @@ Page({
     })
   }
 })
-
+*/

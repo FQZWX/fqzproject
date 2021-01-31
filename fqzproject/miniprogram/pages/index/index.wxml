@@ -28,6 +28,6 @@
 <view class="buttonlist">
 
 <button class ="search" bindtap="jumpS" open-type="onLoad">症状搜索</button>
-<button class ="history">历史记录</button>
+<button class ="history" bindtap="jumpH" open-type="onLoad">历史记录</button>
 <button class ="collect">个人收藏</button>
 </view></view>

@@ -21,6 +21,27 @@ Page({
       searchstr: res.detail.value//赋值给name_value
     })
   },
+  insertresult:function(){
+
+    const db = wx.cloud.database({});
+    const cont = db.collection('Search');
+    var nowdate =new Date();
+    cont.add({
+      data: {
+        searchres: this.data.searchstr,
+        date: nowdate,
+      },
+      success: function (res) {
+        console.log(res._id)
+       /* wx.showModal({
+          title: '成功',
+          content: '您已经登记成功',
+          showCancel: false
+        })*/
+      }
+    });
+
+  },
 
   display: function(res)
   {
@@ -177,6 +198,8 @@ if(this.data.searchstr!=""&&this.data.searchstr.length!=0){
     }
   })*/
   console.log("12")
+
+  this.insertresult();
 }
 /*
   wx.openDocument({ 
