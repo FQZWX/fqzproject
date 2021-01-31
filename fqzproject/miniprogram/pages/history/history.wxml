@@ -1,0 +1,6 @@
+<!--miniprogram/pages/history.wxml-->
+<view class='headView'>
+    <view class='headView'>历史记录
+</view>
+</view>
+

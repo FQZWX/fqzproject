@@ -34,6 +34,7 @@ Page({
     console.log(e)
     if (e.detail.userInfo)
     {
+    
       console.log("用户的信息如下：");
       console.log(e.detail.userInfo);
       app.globalData.userInfo = e.detail.userInfo

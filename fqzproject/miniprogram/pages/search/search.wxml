@@ -15,7 +15,6 @@
             <view class="search_button"data-msg='click' bindtap='searchfun' >搜索</view>
 </view>
 <view  class="table">
-
 <block wx:for="{{listData}}" wx:key="{[code]}" wx:if="{{bg_flag==1}}">
  <view wx:if="{{index % 2 == 0}}" >
  <button class ="searchre" data-id="{{item.id}}" bindtap="display" open-type="onLoad">{{item.main}}</button>
