@@ -1,6 +1,35 @@
 <!--miniprogram/pages/history.wxml-->
 <view class='headView'>
-    <view class='headView'>历史记录
+    <view class='headView'>历史记录</view>
 </view>
+<view></view>
+<view class="table">
+   <view class="tr bg-w">
+ <view class="tha">日期</view>
+ <view class="tha">搜索内容</view>
+ <view class="tha">相应界面</view>
+ 
+ </view>
+  <block wx:for="{{listData}}" wx:key="{[code]}">
+    
+ <view class="tr bg-h"  wx:if="{{index % 2 == 0}}" >
+
+ <view class="tda">{{item.date}}</view>
+ <view class="tda">{{item.searchres}}</view>
+<button class ="jump" data-id="{{item.id}}" bindtap="jump" open-type="onLoad">{{item.searchres}}</button>
+
+
+ </view>
+ <view class="tr bg-g"  wx:else>
+
+<view class="tda">{{item.date}}</view>
+ <view class="tda">{{item.searchres}}</view>
+<button class ="jump" data-id="{{item.id}}" bindtap="jump" open-type="onLoad">{{item.searchres}}</button>
+
+
 </view>
+  </block>
+
+</view>
+
 

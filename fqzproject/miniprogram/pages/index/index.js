@@ -74,7 +74,7 @@ Page({
     wx.cloud.init()
     wx.navigateTo({
       url: '../history/history',
-    })
+    }) 
   },
   onLoad: function (options) {
     this.getOpenid();
@@ -94,22 +94,11 @@ Page({
      }
     })
    },
-   setOpenid()
+
+   adddata()
    {
     const db = wx.cloud.database({});
     const cont = db.collection('User');
-    var ref=0;
-    cont.where(
-      {
-        _openid: this.data.openid
-      }
-    ).get({
-      success: res=>{
-        ref=1;
-      }
-    })
-    if(ref==1)
-    {
     cont.add({
       data: {
         userid: this.data.openid,
@@ -123,10 +112,31 @@ Page({
         })*/
       }
     });
-  }
-    //把数据给云数据库
+  },
 
-   },
+   setOpenid()
+   {
+    const db = wx.cloud.database({});
+    const cont = db.collection('User');
+    cont.where(
+      {
+        userid: this.data.openid
+      }
+    ).get({
+      success: res => {
+        console.log(res.data.length);
+        if(res.data.length==0)
+        {this.adddata();}
+        else{
+        console.log("数据存在",res);
+      }
+      },
+      fail: err => {
+        this.adddata();
+      }
+  });
+},
+
 
 
   //事件处理函数

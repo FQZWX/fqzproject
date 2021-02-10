@@ -1,8 +1,11 @@
 <!--pages/main/main.wxml-->
 <view class='headView'>
-    <view class='headView'>症状搜索</view>
+    <view class='headView'>搜索关键词</view>
+     <text> \n </text>
 </view>
+<view class="line"></view>
 <view class="search_total">
+  <view class="key_name">篇名: <text decode="{{true}}"> &ensp;</text></view>
             <view class="search_bar">
                 <view class="search_bar_box">
                     <icon class="search_inbox" type="search" size="18"></icon>
@@ -11,9 +14,47 @@
             </view>
           <!--  <text>{{count}}</text>
 <button bindtap='searchfun' data-msg='click'>点击计数</button>-->
-            <!-- 搜索按钮,调用搜索查询方法 -->
-            <view class="search_button"data-msg='click' bindtap='searchfun' >搜索</view>
+            <!-- 搜索按钮,调用搜索查询方法 -->   
 </view>
+<view class="search_total">
+  <view class="key_name">汤方: <text decode="{{true}}"> &ensp;</text></view>
+            <view class="search_bar">
+                <view class="search_bar_box">
+                    <icon class="search_inbox" type="search" size="18"></icon>
+                    <input type="text" class="search_bar_input" bindinput="searchs" value="{{soups}}" placeholder="请输入搜索内容"/>
+                 </view>
+            </view>
+          <!--  <text>{{count}}</text>
+<button bindtap='searchfun' data-msg='click'>点击计数</button>-->
+            <!-- 搜索按钮,调用搜索查询方法 -->   
+</view>
+<view class="search_total">
+  <view class="key_name">中药: <text decode="{{true}}"> &ensp;</text></view>
+            <view class="search_bar">
+                <view class="search_bar_box">
+                    <icon class="search_inbox" type="search" size="18"></icon>
+                    <input type="text" class="search_bar_input" bindinput="searchs" value="{{meds}}" placeholder="请输入搜索内容"/>
+                 </view>
+            </view>
+          <!--  <text>{{count}}</text>
+<button bindtap='searchfun' data-msg='click'>点击计数</button>-->
+            <!-- 搜索按钮,调用搜索查询方法 -->   
+</view>
+<view class="search_total">
+  <view class="key_name">其他关键词: <text decode="{{true}}"> &ensp;</text></view>
+            <view class="search_bar">
+                <view class="search_bar_box">
+                    <icon class="search_inbox" type="search" size="18"></icon>
+                    <input type="text" class="search_bar_input" bindinput="searchs" value="{{others}}" placeholder="请输入搜索内容"/>
+                 </view>
+            </view>
+          <!--  <text>{{count}}</text>
+<button bindtap='searchfun' data-msg='click'>点击计数</button>-->
+            <!-- 搜索按钮,调用搜索查询方法 -->   
+            
+          </view>
+
+<view class="search_button"data-msg='click' bindtap='searchfun' >搜索</view>
 <view  class="table">
 <block wx:for="{{listData}}" wx:key="{[code]}" wx:if="{{bg_flag==1}}">
  <view wx:if="{{index % 2 == 0}}" >
