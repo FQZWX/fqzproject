@@ -2,6 +2,9 @@
 Page({
   data: {
     searchstr:"",
+    soups:"",
+    meds:"",
+    others:"",
     count:0,
     bg_flag: 0,
   listData:[
@@ -10,11 +13,19 @@ Page({
   ]
   },
   
-  onLoad: function () {
+  onLoad: function (options) {
   //  var sg = wx.getStorageSync('sg');
    // listData[0].code=sg;
   console.log('onLoad') 
+  let data=options.data;
+  this.setData({
+    searchstr: data//赋值给name_value
+  });
+  if(this.data.searchstr.length!=0)
+  this.searchfun();
   },
+
+
   searchs: function(res){
     console.log("输入的值为："+res.detail.value);//打印输入的值
     this.setData({
@@ -32,6 +43,7 @@ Page({
         date: nowdate,
       },
       success: function (res) {
+
         console.log(res._id)
        /* wx.showModal({
           title: '成功',
@@ -172,6 +184,7 @@ if(this.data.searchstr!=""&&this.data.searchstr.length!=0){
                       id: id++,flag: 0, main:element[0],csearch:element[1],name:element[2],reason:element[3],solution:element[4],
                       soup:element[5],medicine:so
                     };
+                    
                    
                     tmplist.push(tmpadd);
                     that.setData({
