@@ -27,7 +27,9 @@
 <view class ="title">基于《傅青主女科》小程序</view>
 <view class="buttonlist">
 
-<button class ="search" bindtap="jumpS" open-type="onLoad">症状搜索</button>
-<button class ="history" bindtap="jumpH" open-type="onLoad">历史记录</button>
-<button class ="collect">个人收藏</button>
+<button class ="search" bindtap="jumpS" open-type="onLoad">搜原文</button>
+<button class ="topic" bindtap="jumpT" open-type="onLoad">搜题目</button>
+<!--<button class ="history" bindtap="jumpH" open-type="onLoad">历史记录</button>-->
+
+<!--<button class ="collect">个人收藏</button>-->
 </view></view>

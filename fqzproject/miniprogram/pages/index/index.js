@@ -70,6 +70,12 @@ Page({
       url: '../search/search',
     })
   },
+  jumpT:function(){
+    wx.cloud.init()
+    wx.navigateTo({
+      url: '../topic/topic',
+    })
+  },
   jumpH:function(){
     wx.cloud.init()
     wx.navigateTo({

@@ -1,11 +1,11 @@
 <!--pages/main/main.wxml-->
 <view class='headView'>
-    <view class='headView'>搜索关键词</view>
+    <view class='headView'>搜索题目</view>
      <text> \n </text>
 </view>
 <view class="line"></view>
 <view class="search_total">
-  <view class="key_name">篇名: <text decode="{{true}}"> &ensp;</text></view>
+  <view class="key_name">主要关键词1: <text decode="{{true}}"> &ensp;</text></view>
             <view class="search_bar">
                 <view class="search_bar_box">
                     <icon class="search_inbox" type="search" size="18"></icon>
@@ -17,41 +17,19 @@
             <!-- 搜索按钮,调用搜索查询方法 -->   
 </view>
 <view class="search_total">
-  <view class="key_name">汤方: <text decode="{{true}}"> &ensp;</text></view>
-            <view class="search_bar">
-                <view class="search_bar_box">
-                    <icon class="search_inbox" type="search" size="18"></icon>
-                    <input type="text" class="search_bar_input" bindinput="searchsou" value="{{soups}}" placeholder="请输入搜索内容"/>
-                 </view>
-            </view>
-          <!--  <text>{{count}}</text>
-<button bindtap='searchfun' data-msg='click'>点击计数</button>-->
-            <!-- 搜索按钮,调用搜索查询方法 -->   
-</view>
-<view class="search_total">
-  <view class="key_name">中药: <text decode="{{true}}"> &ensp;</text></view>
-            <view class="search_bar">
-                <view class="search_bar_box">
-                    <icon class="search_inbox" type="search" size="18"></icon>
-                    <input type="text" class="search_bar_input" bindinput="searchmed" value="{{meds}}" placeholder="请输入搜索内容"/>
-                 </view>
-            </view>
-          <!--  <text>{{count}}</text>
-<button bindtap='searchfun' data-msg='click'>点击计数</button>-->
-            <!-- 搜索按钮,调用搜索查询方法 -->   
-</view>
-<view class="search_total">
-  <view class="key_name">其他关键词1: <text decode="{{true}}"> &ensp;</text></view>
+  <view class="key_name">附加关键词1: <text decode="{{true}}"> &ensp;</text></view>
             <view class="search_bar">
                 <view class="search_bar_box">
                     <icon class="search_inbox" type="search" size="18"></icon>
                     <input type="text" class="search_bar_input" bindinput="searchoth" value="{{others}}" placeholder="请输入搜索内容"/>
                  </view>
             </view>
-
-          </view>
+          <!--  <text>{{count}}</text>
+<button bindtap='searchfun' data-msg='click'>点击计数</button>-->
+            <!-- 搜索按钮,调用搜索查询方法 -->   
+</view>
 <view class="search_total">
-  <view class="key_name">其他关键词2: <text decode="{{true}}"> &ensp;</text></view>
+  <view class="key_name">附加关键词2: <text decode="{{true}}"> &ensp;</text></view>
             <view class="search_bar">
                 <view class="search_bar_box">
                     <icon class="search_inbox" type="search" size="18"></icon>
@@ -61,7 +39,15 @@
           <!--  <text>{{count}}</text>
 <button bindtap='searchfun' data-msg='click'>点击计数</button>-->
             <!-- 搜索按钮,调用搜索查询方法 -->   
-            
+</view>
+<view class="search_total">
+  <view class="key_name">附加关键词3: <text decode="{{true}}"> &ensp;</text></view>
+            <view class="search_bar">
+                <view class="search_bar_box">
+                    <icon class="search_inbox" type="search" size="18"></icon>
+                    <input type="text" class="search_bar_input" bindinput="searchoth3" value="{{others3}}" placeholder="请输入搜索内容"/>
+                 </view>
+            </view>
           </view>
 
 <!--<view class="search_button"data-msg='click' bindtap='searchfun' >搜索</view>-->

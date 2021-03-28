@@ -2,10 +2,9 @@
 Page({
   data: {
     searchstr:"",
-    soups:"",
-    meds:"",
     others:"",
     others2:"",
+    others:"",
     count:0,
     bg_flag: 0,
   listData:[
@@ -18,11 +17,10 @@ Page({
   //  var sg = wx.getStorageSync('sg');
    // listData[0].code=sg;
    this.data.searchstr=null;
-   this.data.soups=null;
-   this.data.meds=null;
    this.data.others=null;
    this.data.others2=null;
-   
+   this.data.others3=null;
+
   console.log('onLoad') 
   let data=options.data;
   this.setData({
@@ -36,9 +34,9 @@ Page({
 
     wx.cloud.init()
 
-    if(this.data.searchstr!=null||this.data.soups!=null||this.data.meds!=null||this.data.others!=null||this.data.others2!=null){
+    if(this.data.searchstr!=null){
     wx.navigateTo({
-      url: '../searchre/searchre?searchstr='+this.data.searchstr+'&soups='+this.data.soups+'&meds='+this.data.meds+'&others='+this.data.others+'&others2='+this.data.others2,
+      url: '../topicre/topicre?searchstr='+this.data.searchstr+'&others='+this.data.others+'&others2='+this.data.others2+'&others3='+this.data.others3,
     }) 
 
   }
@@ -59,18 +57,6 @@ Page({
       searchstr: res.detail.value//赋值给name_value
     })
   },
-  searchsou: function(res){
-    console.log("输入的值为："+res.detail.value);//打印输入的值
-    this.setData({
-      soups: res.detail.value//赋值给name_value
-    })
-  },
-  searchmed: function(res){
-    console.log("输入的值为："+res.detail.value);//打印输入的值
-    this.setData({
-      meds: res.detail.value//赋值给name_value
-    })
-  },
   searchoth: function(res){
     console.log("输入的值为："+res.detail.value);//打印输入的值
     this.setData({
@@ -80,7 +66,13 @@ Page({
   searchoth2: function(res){
     console.log("输入的值为："+res.detail.value);//打印输入的值
     this.setData({
-      others2: res.detail.value//赋值给name_value
+      other2: res.detail.value//赋值给name_value
+    })
+  },
+  searchoth3: function(res){
+    console.log("输入的值为："+res.detail.value);//打印输入的值
+    this.setData({
+      others3: res.detail.value//赋值给name_value
     })
   },
 
