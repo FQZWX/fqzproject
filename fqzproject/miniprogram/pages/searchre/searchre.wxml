@@ -1,0 +1,67 @@
+<!--miniprogram/pages/searchre/searchre.wxml-->
+<view class='headView'>
+    <view class='headView'>条文搜索结果</view>
+     <text> \n </text>
+</view>
+<view  class="table" wx:if="{{bg_flag==1}}">
+<block wx:for="{{listData}}" wx:key="{[code]}" wx:if="{{bg_flag==1}}">
+ <view wx:if="{{index % 2 == 0}}" >
+ <button class ="searchre" data-id="{{item.id}}" bindtap="display" open-type="onLoad">{{item.main}}</button>
+ </view> <block wx:if="{{item.flag==1}}">
+   <view wx:if="{{bg_flag==1}}"wx:if="{{index % 2 == 0}}" class="tr bg-w">
+ <view class="tha">相关搜索</view>
+ <view class="tha">西医病名</view>
+ <view class="tha">病因病机</view>
+ 
+ </view>
+ <view class="tr bg-h"  wx:if="{{index % 2 == 0}}" >
+
+ <view class="tda">{{item.csearch}}</view>
+ <view class="tda">{{item.name}}</view>
+ <view class="tda">{{item.reason}}</view>
+
+
+ </view>
+ <view wx:if="{{bg_flag==1}}"wx:if="{{index % 2 == 0}}" class="tr bg-w">
+  <view class="tha">治法</view>
+ <view class="tha">汤方</view>
+ <view class="tha">药方</view>
+ </view>
+ <view class="tr bg-h"  wx:if="{{index % 2 == 0}}" >
+   <view class="tda">{{item.solution}}</view>
+<view class="tda">{{item.soup}}</view>
+ <view class="tda">{{item.medicine}}</view>
+   </view>
+</block>
+<view wx:if="{{index % 2 != 0}}">
+  <button class ="searchre" data-id="{{item.id}}" bindtap="display" open-type="onLoad">{{item.main}}</button>
+</view>
+<block wx:if="{{item.flag==1}}">
+   <view wx:if="{{bg_flag==1}}" wx:if="{{index % 2 != 0}}" class="tr bg-w">
+ <view class="tha">相关搜索</view>
+ <view class="tha">西医病名</view>
+ <view class="tha">病因病机</view>
+
+ </view>
+  <view class="tr bg-h" wx:if="{{index % 2 != 0}}">
+   
+  <view class="tda">{{item.csearch}}</view>
+ <view class="tda">{{item.name}}</view>
+ <view class="tda">{{item.reason}}</view>
+ 
+ </view>
+ <view wx:if="{{bg_flag==1}}" wx:if="{{index % 2 != 0}}" class="tr bg-w">
+   <view class="tha">治法</view>
+ <view class="tha">汤方</view>
+ <view class="tha">药方</view>
+</view>
+<view class="tr bg-h" wx:if="{{index % 2 != 0}}">
+<view class="tda">{{item.solution}}</view>
+ <view class="tda">{{item.soup}}</view>
+ <view class="tda">{{item.medicine}}</view>
+ </view>
+</block>
+ </block>
+</view>
+
+<view  class="reinfo" wx:if="{{nore==1}}">未找到相应结果，请检查关键词是否输入正确，或减少关键词输入个数</view>

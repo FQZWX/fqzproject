@@ -81,7 +81,7 @@ text-align: center;
   top: 50px;
   text-align: center;
 }
-.history{
+.topic{
   font-weight: 400;
   position:relative;
   font-style: normal;

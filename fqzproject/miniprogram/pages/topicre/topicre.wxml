@@ -1,0 +1,43 @@
+<!--miniprogram/pages/topicre/topicre.wxml-->
+
+<view class='headView'>
+    <view class='headView'>题目搜索结果</view>
+     <text> \n </text>
+</view>
+
+<view  class="table" >
+  
+
+  <button class ="searchre" data-id="{{item.id}}" bindtap="singledisplay" open-type="onLoad">单选题</button>
+   <block wx:if="{{single_flag==1}}">
+    <block wx:for="{{listData}}" wx:key="{[code]}" >
+   <view wx:if="{{bg_flag==1}}" class="tr bg-w">
+ <view class="tha">条文</view>
+<view class="tha">题目</view>
+<view class="tha">答案</view>
+ </view>
+ <view class="tr bg-h" >
+  <view class="tda">{{item.str}}</view>
+ <view class="tda">{{item.title}}</view>
+ <view class="tda">{{item.answer}}</view>
+</view>
+
+<view wx:if="{{bg_flag==1}}" class="tr bg-w">
+ <view class="an">选项A</view>
+ <view class="an">选项B</view>
+ <view class="an">选项C</view>
+<view class="an">选项D</view>
+<view class="an">选项E</view>
+ 
+ </view>
+ <view class="tr bg-h" >
+ <view class="anr">{{item.a}}</view>
+ <view class="anr">{{item.b}}</view>
+ <view class="anr">{{item.c}}</view>
+<view class="anr">{{item.d}}</view>
+<view class="anr">{{item.e}}</view>
+</view>
+
+</block>
+</block>
+</view>
